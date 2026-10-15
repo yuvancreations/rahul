@@ -9,13 +9,11 @@ import {
   UserCheck, 
   QrCode, 
   Bookmark, 
-  Flower2, 
   Sparkles, 
-  Camera, 
   Star,
-  CalendarCheck
+  ShieldCheck,
+  FolderCheck
 } from 'lucide-react';
-import SoundHealingPlayer from './SoundHealingPlayer';
 import StoryHighlights from './StoryHighlights';
 
 export function ProfileHeader({ 
@@ -62,7 +60,7 @@ export function ProfileHeader({
         <div className="cover-top-bar">
           <div className="cover-pill-verified desktop-only-badge">
             <Sparkles size={14} className="tag-sparkle" />
-            <span>Official Business Profile</span>
+            <span>Verified Personal Service Provider</span>
           </div>
 
           <div className="cover-actions-right">
@@ -133,14 +131,14 @@ export function ProfileHeader({
           <div className="banner-badge-row">
             <span className="banner-gold-pill">
               <Sparkles size={12} />
-              <span>Sacred Sanctuary • Dehradun</span>
+              <span>Services Starting From ₹500 • Pan-India Support</span>
             </span>
           </div>
 
           <div className="banner-title-row">
             <h1 className="banner-brand-title">{data.name}</h1>
             {data.isVerified && (
-              <span className="banner-verified-badge" title="Verified Business Profile">
+              <span className="banner-verified-badge" title="Verified Personal Service Provider">
                 <CheckCircle2 size={24} className="verified-icon-svg" />
               </span>
             )}
@@ -158,7 +156,7 @@ export function ProfileHeader({
             <span className="banner-dot">•</span>
             <span className="banner-meta-item rating">
               <Star size={12} fill="#c99a2c" color="#c99a2c" />
-              <span><strong>4.9</strong> (128 Reviews)</span>
+              <span><strong>{data.stats.rating}</strong> ({data.stats.reviewsCount} verified reviews)</span>
             </span>
           </div>
         </div>
@@ -167,25 +165,9 @@ export function ProfileHeader({
       {/* 2. Identity Actions & Stats Bar */}
       <div className="identity-section">
         <div className="identity-flex-desktop">
-          {/* Avatar and Social Proof Header Row */}
-          <div className="identity-top-row-mobile">
-            {/* Overlapping Avatar / Logo */}
-            <div className="avatar-wrapper">
-              <div className="avatar-circle">
-                <img 
-                  src={data.logo} 
-                  alt={data.name} 
-                  className="avatar-img"
-                  loading="eager"
-                  onError={(e) => {
-                    e.currentTarget.src = "/logo.png";
-                  }}
-                />
-                <span className="online-badge" title="Active Business"></span>
-              </div>
-            </div>
-
-            {/* Social Proof & Follow Info */}
+          {/* Avatar and Social Proof Header Row (Avatar positioned on the right) */}
+          <div className="identity-top-row-mobile profile-avatar-right">
+            {/* Social Proof & Follow Info on the Left */}
             <div className="identity-details">
               <div className="identity-proof-box">
                 <div className="proof-and-follow-group">
@@ -223,6 +205,22 @@ export function ProfileHeader({
                 </div>
               </div>
             </div>
+
+            {/* Overlapping Profile Pic on the RIGHT */}
+            <div className="avatar-wrapper">
+              <div className="avatar-circle">
+                <img 
+                  src={data.logo} 
+                  alt={data.name} 
+                  className="avatar-img"
+                  loading="eager"
+                  onError={(e) => {
+                    e.currentTarget.src = "/logo.png";
+                  }}
+                />
+                <span className="online-badge" title="Active Business"></span>
+              </div>
+            </div>
           </div>
 
           {/* Story Highlights Bar */}
@@ -230,7 +228,7 @@ export function ProfileHeader({
             <StoryHighlights data={data} />
           </div>
 
-          {/* 3. Primary CTA Actions & Sound Healing */}
+          {/* 3. Primary CTA Actions */}
           <div className="identity-actions-col">
             <div className="primary-actions-grid">
               <a 
@@ -263,36 +261,31 @@ export function ProfileHeader({
               </a>
             </div>
 
-            {/* 432Hz Sound Healing Experience Pill */}
-            <SoundHealingPlayer />
+            <span className="header-trust-note">Direct Assistance • Verified Support</span>
           </div>
         </div>
 
         {/* 4. Desktop Navigation Tabs */}
         <div className="desktop-profile-nav">
           <button type="button" className="desktop-nav-link" onClick={() => scrollTo('about')}>
-            <Flower2 size={16} />
-            <span>About Us</span>
-          </button>
-          <button type="button" className="desktop-nav-link" onClick={() => scrollTo('finder')}>
-            <Sparkles size={16} />
-            <span>Practice Finder</span>
+            <ShieldCheck size={16} />
+            <span>About Rahul Parida</span>
           </button>
           <button type="button" className="desktop-nav-link" onClick={() => scrollTo('programs')}>
-            <CalendarCheck size={16} />
-            <span>Programs & Batches</span>
+            <Sparkles size={16} />
+            <span>Services (From ₹500)</span>
           </button>
           <button type="button" className="desktop-nav-link" onClick={() => scrollTo('photos')}>
-            <Camera size={16} />
-            <span>Photo Gallery</span>
+            <FolderCheck size={16} />
+            <span>Service Portfolio</span>
           </button>
           <button type="button" className="desktop-nav-link" onClick={() => scrollTo('reviews')}>
             <Star size={16} />
-            <span>Reviews</span>
+            <span>Client Reviews</span>
           </button>
           <button type="button" className="desktop-nav-link" onClick={() => scrollTo('location')}>
             <MapPin size={16} />
-            <span>Location & Contact</span>
+            <span>Reach &amp; Contact</span>
           </button>
         </div>
       </div>

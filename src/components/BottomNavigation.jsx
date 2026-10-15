@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home, Info, Camera, MapPin } from 'lucide-react';
+import { Home, Info, Sparkles, MapPin } from 'lucide-react';
 
 export function BottomNavigation({ data, activeSection, onNavigate }) {
   const [currentActive, setCurrentActive] = useState('home');
@@ -9,13 +9,13 @@ export function BottomNavigation({ data, activeSection, onNavigate }) {
       const scrollPos = window.scrollY + 200;
 
       const locationEl = document.getElementById('location');
-      const photosEl = document.getElementById('photos');
+      const programsEl = document.getElementById('programs');
       const aboutEl = document.getElementById('about');
 
       if (locationEl && scrollPos >= locationEl.offsetTop) {
         setCurrentActive('location');
-      } else if (photosEl && scrollPos >= photosEl.offsetTop) {
-        setCurrentActive('photos');
+      } else if (programsEl && scrollPos >= programsEl.offsetTop) {
+        setCurrentActive('programs');
       } else if (aboutEl && scrollPos >= aboutEl.offsetTop) {
         setCurrentActive('about');
       } else {
@@ -74,18 +74,18 @@ export function BottomNavigation({ data, activeSection, onNavigate }) {
           <span className="nav-label">About</span>
         </button>
 
-        {/* 3. Photos */}
+        {/* 3. Services */}
         <button 
           type="button" 
-          className={`bottom-nav-btn ${currentActive === 'photos' ? 'active' : ''}`}
-          onClick={() => scrollTo('photos')}
-          aria-label="Photos"
+          className={`bottom-nav-btn ${currentActive === 'programs' ? 'active' : ''}`}
+          onClick={() => scrollTo('programs')}
+          aria-label="Services"
         >
-          <Camera size={20} className="nav-icon" />
-          <span className="nav-label">Photos</span>
+          <Sparkles size={20} className="nav-icon" />
+          <span className="nav-label">Services</span>
         </button>
 
-        {/* 4. Location */}
+        {/* 4. Location & Contact */}
         <button 
           type="button" 
           className={`bottom-nav-btn ${currentActive === 'location' ? 'active' : ''}`}
@@ -93,7 +93,7 @@ export function BottomNavigation({ data, activeSection, onNavigate }) {
           aria-label="Location"
         >
           <MapPin size={20} className="nav-icon" />
-          <span className="nav-label">Location</span>
+          <span className="nav-label">Contact</span>
         </button>
 
         {/* 5. WhatsApp (Prominent Highlight) */}

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import QRCode from 'qrcode';
 import { 
   X, 
   Copy, 
@@ -9,15 +10,42 @@ import {
   Globe 
 } from 'lucide-react';
 
-export function ShareProfileModal({ data, isOpen, onClose, onShowToast }) {
+export function ShareProfileModal({ data, isOpen, initialTab = 'apps', onClose, onShowToast }) {
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState('apps'); // 'apps' | 'qr'
+  const [qrImage, setQrImage] = useState('');
+  const [qrError, setQrError] = useState(false);
 
-  if (!isOpen) return null;
-
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : data.websiteUrl;
+  const isLocalAddress = typeof window !== 'undefined' && /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
+  const currentUrl = typeof window !== 'undefined' && !isLocalAddress
+    ? `${window.location.origin}${window.location.pathname}`
+    : (data.websiteUrl || 'https://rahulparida.in/');
   const encodedUrl = encodeURIComponent(currentUrl);
   const encodedText = encodeURIComponent(`${data.shareText} ${data.name}\n`);
+
+  useEffect(() => {
+    if (isOpen) setActiveTab(initialTab);
+  }, [initialTab, isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || activeTab !== 'qr') return;
+    let cancelled = false;
+    setQrImage('');
+    setQrError(false);
+    QRCode.toDataURL(currentUrl, {
+      errorCorrectionLevel: 'H',
+      margin: 2,
+      width: 360,
+      color: { dark: '#172c24', light: '#ffffff' }
+    }).then((url) => {
+      if (!cancelled) setQrImage(url);
+    }).catch(() => {
+      if (!cancelled) setQrError(true);
+    });
+    return () => { cancelled = true; };
+  }, [activeTab, currentUrl, isOpen]);
+
+  if (!isOpen) return null;
 
   const handleCopy = async () => {
     try {
@@ -203,55 +231,7 @@ export function ShareProfileModal({ data, isOpen, onClose, onShowToast }) {
           <div className="qr-code-content animate-fade-in">
             <div className="qr-card-wrapper">
               <div className="qr-code-art">
-                {/* Clean inline SVG QR code graphic */}
-                <svg viewBox="0 0 200 200" width="180" height="180" className="qr-svg">
-                  <rect width="200" height="200" fill="#ffffff" rx="12"/>
-                  {/* Top-Left Finder */}
-                  <rect x="20" y="20" width="50" height="50" fill="#122c21" rx="6"/>
-                  <rect x="28" y="28" width="34" height="34" fill="#ffffff" rx="3"/>
-                  <rect x="36" y="36" width="18" height="18" fill="#122c21" rx="2"/>
-                  {/* Top-Right Finder */}
-                  <rect x="130" y="20" width="50" height="50" fill="#122c21" rx="6"/>
-                  <rect x="138" y="28" width="34" height="34" fill="#ffffff" rx="3"/>
-                  <rect x="146" y="36" width="18" height="18" fill="#122c21" rx="2"/>
-                  {/* Bottom-Left Finder */}
-                  <rect x="20" y="130" width="50" height="50" fill="#122c21" rx="6"/>
-                  <rect x="28" y="138" width="34" height="34" fill="#ffffff" rx="3"/>
-                  <rect x="36" y="146" width="18" height="18" fill="#122c21" rx="2"/>
-                  
-                  {/* QR Pattern Dots */}
-                  <rect x="80" y="25" width="10" height="10" fill="#122c21"/>
-                  <rect x="95" y="25" width="10" height="10" fill="#122c21"/>
-                  <rect x="110" y="35" width="10" height="10" fill="#122c21"/>
-                  <rect x="80" y="55" width="10" height="10" fill="#122c21"/>
-                  <rect x="100" y="55" width="10" height="10" fill="#122c21"/>
-
-                  <rect x="25" y="85" width="10" height="10" fill="#122c21"/>
-                  <rect x="45" y="85" width="10" height="10" fill="#122c21"/>
-                  <rect x="65" y="85" width="10" height="10" fill="#122c21"/>
-                  <rect x="85" y="85" width="10" height="10" fill="#c99a2c"/>
-                  <rect x="105" y="85" width="10" height="10" fill="#122c21"/>
-                  <rect x="125" y="85" width="10" height="10" fill="#122c21"/>
-                  <rect x="145" y="85" width="10" height="10" fill="#122c21"/>
-                  <rect x="165" y="85" width="10" height="10" fill="#122c21"/>
-
-                  <rect x="25" y="105" width="10" height="10" fill="#122c21"/>
-                  <rect x="85" y="105" width="10" height="10" fill="#122c21"/>
-                  <rect x="105" y="105" width="10" height="10" fill="#122c21"/>
-                  <rect x="145" y="105" width="10" height="10" fill="#122c21"/>
-
-                  <rect x="80" y="135" width="10" height="10" fill="#122c21"/>
-                  <rect x="100" y="135" width="10" height="10" fill="#122c21"/>
-                  <rect x="120" y="135" width="10" height="10" fill="#122c21"/>
-                  <rect x="140" y="135" width="10" height="10" fill="#122c21"/>
-                  <rect x="160" y="135" width="10" height="10" fill="#122c21"/>
-
-                  <rect x="80" y="155" width="10" height="10" fill="#122c21"/>
-                  <rect x="100" y="155" width="10" height="10" fill="#c99a2c"/>
-                  <rect x="120" y="155" width="10" height="10" fill="#122c21"/>
-                  <rect x="150" y="155" width="10" height="10" fill="#122c21"/>
-                  <rect x="165" y="165" width="10" height="10" fill="#122c21"/>
-                </svg>
+                {qrImage ? <img src={qrImage} alt={`Scan to visit ${data.name}`} width="240" height="240" className="qr-svg" /> : <p role="status">{qrError ? 'Could not create QR code. Please try again.' : 'Creating scannable QR code…'}</p>}
               </div>
               <p className="qr-instruction">Scan this QR code with any camera or UPI app to view profile</p>
             </div>

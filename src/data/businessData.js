@@ -1,252 +1,244 @@
-/**
- * Business Data Model - Dhyana Naad Yogshala
- * All profile attributes, programs, gallery, reviews, and contact info.
- */
-
-export const businessData = {
-  // 1. Core Profile
-  name: "Dhyana Naad Yogshala",
-  username: "@dhyananaadyogshala",
-  tagline: "Yoga • Meditation • Sound Healing • Wellness",
-  category: "Yoga Studio & Sound Healing Sanctuary",
+/** Rahul Parida - Personal Service Provider profile data */
+const businessData = {
+  name: 'Rahul Parida',
+  username: '@rahulparidaservices',
+  tagline: 'Your Trusted Partner for Insurance, Documentation & Online Services',
+  subtitle: 'आपकी सभी जरूरी सेवाएँ – एक ही जगह | Services Starting From ₹500',
+  category: 'Personal Service Provider • Citizen, Documentation & Business Assistance',
   isVerified: true,
-  location: "Dehradun, Uttarakhand",
-  logo: "/logo.png",
-  coverImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop",
-
-  // 2. Stats & Social Proof
+  location: 'Direct Personal & Pan-India Online Assistance',
+  websiteUrl: 'https://rahulparida.in/',
+  logo: '/assets/rahul/avatar.jpg',
+  coverImage: '/assets/rahul/cover.jpg',
+  startingPrice: '₹500',
+  priceNotice: 'Services Starting From ₹500 Onwards',
   stats: {
-    peopleConnectedLabel: "128+ people connected",
+    peopleConnectedLabel: '180+ Happy Clients Assisted',
     rating: 4.9,
-    reviewsCount: 128,
+    reviewsCount: 148,
     avatars: [
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop"
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop'
     ]
   },
-
-  // 3. Contact & Direct URLs
-  phone: "+91 95574 08436",
-  whatsapp: "+919557408436",
-  email: "dhyananaad@gmail.com",
-  mapsUrl: "https://maps.app.goo.gl/uLSmh4g48rR3o3Wp8",
-  googleReviewUrl: "https://maps.app.goo.gl/uLSmh4g48rR3o3Wp8",
-  whatsappMessage: "Hello Dhyana Naad Yogshala, I found your business profile on LiveJao and would like to know more about your yoga & sound healing batches.",
-
-  // 4. Address & Timings
+  phone: '+91 82799 37975',
+  whatsapp: '+918279937975',
+  email: 'rahulparida.services@gmail.com',
+  mapsUrl: 'https://maps.google.com/?q=Rahul+Parida+Personal+Service+Provider',
+  googleReviewUrl: 'https://maps.google.com/?q=Rahul+Parida+Personal+Service+Provider',
+  mapsEmbedUrl: 'https://maps.google.com/maps?q=India&t=&z=5&ie=UTF8&iwloc=&output=embed',
+  whatsappMessage: 'Hello Rahul, I am interested in your services. I would like to know more about your assistance.',
+  shareText: 'Contact Rahul Parida for Insurance, Licence Renewal, Aadhaar, PAN, GST, Hotel Management & Documentation Services (Starting ₹500). Call/WhatsApp: +91 82799 37975.',
   address: {
-    line1: "Top Floor, Shree Ji Tower",
-    line2: "Near Doon University Chowk",
-    area: "Mothrowala, Dehradun",
-    statePin: "Uttarakhand – 248001"
+    line1: 'Rahul Parida – Personal Service Provider',
+    line2: 'Direct One-on-One Customer Assistance',
+    area: 'Online Assistance & Doorstep Support',
+    statePin: 'Pan-India Online & Local Consultation'
   },
-  timings: "Mon – Sat: 6:00 AM – 8:00 PM | Sunday Closed",
-
-  // 5. About Section
+  timings: 'Mon – Sat: 9:00 AM – 8:30 PM (Sun by Appointment)',
   about: {
-    title: "About Us",
-    description: "Dhyana Naad Yogshala is a sacred space in Dehradun dedicated to yoga, meditation, and Tibetan sound healing. We help you release chronic stress, balance vital prana energy, and transform your life naturally under authentic lineage masters.",
+    title: 'आपकी सभी जरूरी सेवाएँ – एक ही जगह',
+    subtitle: 'Insurance • Licence • Aadhaar • PAN • GST • Hotel Management',
+    description: 'Rahul Parida एक Individual Service Provider हैं, जो ग्राहकों को Insurance, Licence Renewal, Aadhaar Update, PAN Card, GST Registration, Hotel Management तथा विभिन्न Documentation और Online Assistance Services उपलब्ध कराते हैं। हमारा उद्देश्य ग्राहकों को उनकी जरूरत के अनुसार सरल, सुविधाजनक और भरोसेमंद सहायता एक ही स्थान पर उपलब्ध कराना है। सभी सेवाएँ मात्र ₹500 से शुरू होती हैं।',
     trustBadges: [
-      {
-        id: 1,
-        title: "Experienced Trainers",
-        icon: "UserCheck"
-      },
-      {
-        id: 2,
-        title: "Personal Attention",
-        icon: "Users"
-      },
-      {
-        id: 3,
-        title: "Holistic Approach",
-        icon: "Sparkles"
-      }
+      { id: 1, title: 'Personal Assistance', icon: 'UserCheck' },
+      { id: 2, title: 'Starting From ₹500', icon: 'Sparkles' },
+      { id: 3, title: 'Multiple Services', icon: 'Users' }
     ],
-    studioImage: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1200&auto=format&fit=crop",
-    alt: "Dhyana Naad Yogshala Sacred Studio Sanctuary"
+    studioImage: '/assets/rahul/online_forms.jpg',
+    alt: 'Rahul Parida Professional Assistance Services Desk'
   },
-
-  // 6. Programs / Services with Full Details
   programs: [
     {
-      id: "yoga-classes",
-      title: "Yoga Classes",
-      subtitle: "Daily yoga for all levels",
-      description: "Authentic Hatha and Ashtanga yoga postures designed for flexibility, core strength, and spinal alignment. Suitable for beginners to advanced seekers.",
-      icon: "Sparkles",
-      image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=600&auto=format&fit=crop",
-      timing: "6:00 AM & 5:30 PM Daily",
-      duration: "60 Minutes / Session",
-      level: "Beginner to Advanced",
-      tag: "Daily Practice",
+      id: 'insurance',
+      title: 'Insurance Services',
+      subtitle: 'Vehicle, Health & Life Policy Support',
+      description: 'Comprehensive assistance for new insurance policies, policy renewal assistance, vehicle insurance (car/bike/commercial), health insurance, life coverage, and claim documentation support. Authorized channel processing with prompt renewal alerts.',
+      icon: 'Sparkles',
+      image: '/assets/rahul/insurance.jpg',
+      timing: 'Quick Assistance',
+      duration: 'Starts ₹500',
+      level: 'Individuals & Families',
+      tag: 'Insurance Assistance',
       benefits: [
-        "Enhances body flexibility, posture, and core stamina",
-        "Calms stress levels and awakens daily morning vitality",
-        "Personal posture correction by certified lineage yoga masters"
+        'Vehicle insurance renewal & new policy support',
+        'Health & Mediclaim policy guidance',
+        'Life insurance documentation & query resolution',
+        'Prompt reminder & seamless claim paperwork guidance'
       ]
     },
     {
-      id: "meditation",
-      title: "Meditation",
-      subtitle: "Calm your mind, find inner peace",
-      description: "Mindfulness and ancient guided visualization methods that calm the nervous system, build emotional resilience, and quiet restless thoughts.",
-      icon: "Sun",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600&auto=format&fit=crop",
-      timing: "7:00 AM & 6:30 PM Daily",
-      duration: "45 Minutes / Session",
-      level: "All Seekers",
-      tag: "Inner Peace",
+      id: 'licence',
+      title: 'Licence Renewal Services',
+      subtitle: 'Driving Licence Renewal & Transport Assistance',
+      description: 'Hassle-free assistance for Driving Licence Renewal, Duplicate Licence, Address/Name/DOB change, application filing, slot booking guidance, and status tracking for transport department services.',
+      icon: 'Wind',
+      image: '/assets/rahul/licence.jpg',
+      timing: 'Same-Day Filing Guidance',
+      duration: 'Starts ₹500',
+      level: 'Vehicle Owners & Drivers',
+      tag: 'Licence Renewal',
       benefits: [
-        "Dissolves anxiety, overthinking, and emotional fatigue",
-        "Deepens sleep quality and mental clarity",
-        "Guided chakra visualization & mindfulness techniques"
+        'Driving Licence renewal application support',
+        'Duplicate licence & lost licence guidance',
+        'Address & demographic details change filing',
+        'Application status tracking & documentation prep'
       ]
     },
     {
-      id: "pranayama",
-      title: "Pranayama",
-      subtitle: "Breath control for better life",
-      description: "Harness the vital life-force energy (Prana) through rhythmic breath control, improving lung capacity, blood oxygenation, and nervous balance.",
-      icon: "Wind",
-      image: "https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?q=80&w=600&auto=format&fit=crop",
-      timing: "Morning Vitality Slots",
-      duration: "40 Minutes / Session",
-      level: "All Levels",
-      tag: "Vital Energy",
+      id: 'aadhaar',
+      title: 'Aadhaar Card Services',
+      subtitle: 'Demographic Update & Appointment Assistance',
+      description: 'Dedicated guidance for Aadhaar demographic updates (Name, Address, DOB), mobile number linking appointments, document verification checklists, and authorized Aadhaar Seva Kendra guidance. (Note: Biometric capture requires official authorized center).',
+      icon: 'Sun',
+      image: '/assets/rahul/pan_aadhaar.jpg',
+      timing: 'Online Appointment Guidance',
+      duration: 'Starts ₹500',
+      level: 'All Citizens & Families',
+      tag: 'Aadhaar Services',
       benefits: [
-        "Expands lung capacity and balances oxygen intake",
-        "Calms autonomic nervous system within 10 minutes",
-        "Clears energetic blockages (Nadis) throughout the body"
+        'Name, Address & DOB update guidance',
+        'Aadhaar online portal appointment booking',
+        'Valid document verification checklist',
+        'Step-by-step guidance for authorized center visit'
       ]
     },
     {
-      id: "sound-healing",
-      title: "Sound Healing",
-      subtitle: "Heal your energy with sound",
-      description: "Acoustic healing with Himalayan Tibetan singing bowls and harmonic resonance that release deep cellular tension and restore inner harmony.",
-      icon: "Radio",
-      image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=600&auto=format&fit=crop",
-      timing: "Special Sessions (Morning & Evening)",
-      duration: "60 Minutes Acoustic Bath",
-      level: "Deep Relaxation",
-      tag: "Acoustic Therapy",
+      id: 'pan',
+      title: 'PAN Card Services',
+      subtitle: 'New PAN, Correction & Update Support',
+      description: 'Complete assistance for New PAN Card application, minor/major PAN updates, corrections in father name, DOB or spellings, reprint of lost/damaged PAN card, and Aadhaar-PAN linking assistance.',
+      icon: 'Radio',
+      image: '/assets/rahul/pan_aadhaar.jpg',
+      timing: 'Fast Processing',
+      duration: 'Starts ₹500',
+      level: 'Individuals & Businesses',
+      tag: 'PAN Card Services',
       benefits: [
-        "432Hz sacred harmonic frequencies relax brainwaves into delta state",
-        "Relieves chronic insomnia, stress, and nervous strain",
-        "Complete acoustic vibration cleanse of aura and chakras"
+        'Instant & Regular New PAN Card application',
+        'Correction in name, photograph, signature & DOB',
+        'Damaged or Lost PAN card re-issue assistance',
+        'PAN & Aadhaar linking compliance support'
       ]
     },
     {
-      id: "yoga-therapy",
-      title: "Yoga Therapy",
-      subtitle: "Relieve pain, restore body balance",
-      description: "Customized therapeutic asanas targeting lower back pain, neck stiffness, postural issues, joint stiffness, and stress-induced ailments.",
-      icon: "HeartPulse",
-      image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=600&auto=format&fit=crop",
-      timing: "By 1-on-1 Appointment",
-      duration: "Personalized Plan",
-      level: "Therapeutic Rehabilitation",
-      tag: "Restorative",
+      id: 'gst',
+      title: 'GST Services',
+      subtitle: 'Registration, Documentation & Amendment',
+      description: 'Professional support for New GST Registration, business documentation, scheme selection, GST amendments, business address changes, return coordination, and GST cancellation assistance.',
+      icon: 'HeartPulse',
+      image: '/assets/rahul/gst.jpg',
+      timing: 'End-to-End Filing Support',
+      duration: 'Starts ₹500',
+      level: 'Entrepreneurs & Businesses',
+      tag: 'GST Registration',
       benefits: [
-        "Targeted spinal decompression for lower back & neck relief",
-        "Safe, gentle alignment routines tailored to individual health",
-        "Progress tracking with certified therapeutic instructors"
+        'New GST registration & ARN generation support',
+        'Business place amendment & partner changes',
+        'GST portal documentation & compliance assistance',
+        'GST cancellation & surrender support'
       ]
     },
     {
-      id: "wellness-programs",
-      title: "Wellness Programs",
-      subtitle: "Holistic programs for mind & body",
-      description: "Complete lifestyle detoxification, chakra balancing, nutrition advice, and wellness weekend retreats in serene Dehradun foothills.",
-      icon: "Flower2",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop",
-      timing: "Weekly Batches & Weekend Immersions",
-      duration: "Multi-Day Programs",
-      level: "Holistic Lifestyle",
-      tag: "Holistic Health",
+      id: 'hotel',
+      title: 'Hotel Management Services',
+      subtitle: 'Hospitality Setup & Booking Coordination',
+      description: 'Tailored assistance for hotel management, booking desk coordination, hospitality documentation, guest service workflows, hotel business setup assistance, and property service management.',
+      icon: 'Flower2',
+      image: '/assets/rahul/hotel.jpg',
+      timing: 'Custom Engagement',
+      duration: 'Starts ₹500',
+      level: 'Hotel Owners & Guests',
+      tag: 'Hotel Management',
       benefits: [
-        "Comprehensive lifestyle & holistic detox guidance",
-        "Combination of Yoga, Sound Healing, and Pranayama",
-        "Small group community environment for personal attention"
+        'Hotel booking & reservation coordination support',
+        'Hospitality service workflows & guest assistance',
+        'Hotel documentation & licensing setup guidance',
+        'Property operations & supplier coordination'
+      ]
+    },
+    {
+      id: 'documentation',
+      title: 'Documentation Services',
+      subtitle: 'Govt & Private Online Form Assistance',
+      description: 'Personal assistance for government portals, private job/exam applications, online appointments, certificates, digital affidavit preparation, and general citizen documentation support.',
+      icon: 'Sparkles',
+      image: '/assets/rahul/online_forms.jpg',
+      timing: 'Immediate Support',
+      duration: 'Starts ₹500',
+      level: 'Students, Job Seekers & Citizens',
+      tag: 'Online Forms',
+      benefits: [
+        'Govt exam & recruitment form submission support',
+        'Domicile, income & caste certificate form assistance',
+        'Online portal slot & appointment scheduling',
+        'Document scanning, resizing & formatting support'
+      ]
+    },
+    {
+      id: 'other',
+      title: 'Other Individual Services',
+      subtitle: 'Custom Assistance & Personalized Support',
+      description: 'Personalized one-on-one assistance for unique documentation needs, registration assistance, printing/courier coordination, and custom citizen queries with transparent service fees.',
+      icon: 'Sun',
+      image: '/assets/rahul/cover.jpg',
+      timing: 'On Demand',
+      duration: 'Starts ₹500',
+      level: 'Custom Requirements',
+      tag: 'Other Services',
+      benefits: [
+        'One-on-one individual attention for complex queries',
+        'Transparent fees with zero hidden costs',
+        'Fast WhatsApp updates & direct phone assistance',
+        'Both online and offline local assistance'
       ]
     }
   ],
-
-  // 7. Photo Gallery
   photos: [
-    {
-      id: 1,
-      title: "Outdoor Morning Yoga Practice",
-      caption: "Embracing morning vitality in natural Himalayan air",
-      category: "Yoga",
-      url: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: 2,
-      title: "Himalayan Singing Bowl Sound Bath",
-      caption: "432Hz vibrational sound therapy for deep tranquility",
-      category: "Sound Bath",
-      url: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: 3,
-      title: "Guided Meditation & Mindfulness",
-      caption: "Calming the racing mind in peaceful silence",
-      category: "Meditation",
-      url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: 4,
-      title: "Sacred Studio Sanctuary",
-      caption: "Peaceful interior atmosphere at Shree Ji Tower, Dehradun",
-      category: "Studio",
-      url: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: 5,
-      title: "Alignment & Therapeutic Postures",
-      caption: "Individual attention for posture and spinal relief",
-      category: "Yoga",
-      url: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: 6,
-      title: "Sunset Serenity Practice",
-      caption: "Releasing the day's stress during evening practice",
-      category: "Meditation",
-      url: "https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?q=80&w=800&auto=format&fit=crop"
-    }
+    { id: 1, title: 'Insurance Services Assistance', caption: 'Vehicle, Health & Life Policy Support.', category: 'Insurance', url: '/assets/rahul/insurance.jpg' },
+    { id: 2, title: 'Driving Licence & Transport', caption: 'DL Renewal, Duplicate & Details Change.', category: 'Licence', url: '/assets/rahul/licence.jpg' },
+    { id: 3, title: 'Aadhaar & PAN Verification', caption: 'Identity documentation & correction support.', category: 'Identity', url: '/assets/rahul/pan_aadhaar.jpg' },
+    { id: 4, title: 'GST Registration & Filing', caption: 'Business registration & compliance sheets.', category: 'GST & Tax', url: '/assets/rahul/gst.jpg' },
+    { id: 5, title: 'Hotel Management Services', caption: 'Hospitality coordination & booking desk.', category: 'Hospitality', url: '/assets/rahul/hotel.jpg' },
+    { id: 6, title: 'Citizen Documentation & Forms', caption: 'Online government & private form support.', category: 'Forms', url: '/assets/rahul/online_forms.jpg' },
+    { id: 7, title: 'Consultation & Case Study Desk', caption: 'Transparent, reliable personal service.', category: 'Consultation', url: '/assets/rahul/cover.jpg' },
+    { id: 8, title: 'Rahul Parida - Personal Service Provider', caption: 'Direct assistance via WhatsApp & Call.', category: 'Personal Assistance', url: '/assets/rahul/avatar.jpg' }
   ],
-
-  // 8. Reviews
   reviews: [
     {
       id: 1,
-      name: "Anjali Sharma",
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop",
+      name: 'Amitabh Mishra',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop',
       rating: 5,
-      date: "2 weeks ago",
-      text: "The Tibetan sound healing sessions at Dhyana Naad completely cured my sleep problems. The energy and personal guidance by the masters is unmatched in Dehradun."
+      date: 'Verified Client · Google Review',
+      text: 'Rahul ji assisted me with my driving licence renewal and vehicle insurance. The process was completed smoothly without any hassle. Very genuine person, charges starting from ₹500 are very reasonable and transparent. Highly recommended!'
     },
     {
       id: 2,
-      name: "Rohit Verma",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop",
+      name: 'Pooja Verma',
+      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop',
       rating: 5,
-      date: "1 month ago",
-      text: "Best yoga studio near Doon University. The small batch size (max 12) ensures personal attention on every posture. My back pain disappeared in 3 weeks!"
+      date: 'Verified Client · WhatsApp Feedback',
+      text: 'Got my GST registration and PAN card correction done through Rahul Parida. He gave complete personal attention, explained all documents needed on WhatsApp, and gave regular updates. Extremely trustworthy!'
     },
     {
       id: 3,
-      name: "Pooja Rawat",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop",
+      name: 'Suresh Rawat',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop',
       rating: 5,
-      date: "2 months ago",
-      text: "A truly peaceful sanctuary away from city chaos. The pranayama and meditation techniques changed my daily life and energy levels."
+      date: 'Verified Client · Direct Consultation',
+      text: 'Excellent documentation and online form assistance. Rahul handled our hotel management booking coordination and documentation with high professionalism. 5 stars for his responsive support!'
     }
+  ],
+  stories: [
+    { id: 1, name: 'Insurance', image: '/assets/rahul/insurance.jpg', title: 'Insurance Services', caption: 'Vehicle, Health and Life Insurance renewal and new policy assistance starting ₹500.', badge: 'Insurance' },
+    { id: 2, name: 'Licence', image: '/assets/rahul/licence.jpg', title: 'Licence Renewal', caption: 'Driving Licence renewal, duplicate licence, and transport application assistance.', badge: 'Licence' },
+    { id: 3, name: 'Aadhaar/PAN', image: '/assets/rahul/pan_aadhaar.jpg', title: 'Aadhaar & PAN Services', caption: 'Demographic update guidance, new PAN application, and correction assistance.', badge: 'Identity' },
+    { id: 4, name: 'GST Filing', image: '/assets/rahul/gst.jpg', title: 'GST Registration', caption: 'New GST number, amendments, business compliance and documentation assistance.', badge: 'GST' },
+    { id: 5, name: 'Hotel Mgmt', image: '/assets/rahul/hotel.jpg', title: 'Hotel Management', caption: 'Hotel booking coordination, hospitality workflows, and business setup support.', badge: 'Hospitality' }
   ]
 };
 
+export { businessData };
 export default businessData;

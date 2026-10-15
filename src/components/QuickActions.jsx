@@ -94,7 +94,7 @@ export function QuickActions({
           </div>
           <div className="action-text-group">
             <span className="action-label">Review</span>
-            <span className="action-sublabel">Rate 5.0 ⭐</span>
+            <span className="action-sublabel">See rating &amp; reviews</span>
           </div>
         </a>
 

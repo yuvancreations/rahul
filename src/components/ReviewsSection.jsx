@@ -14,7 +14,7 @@ export function ReviewsSection({ data }) {
           </span>
           <div>
             <h2 className="section-title">Client Reviews</h2>
-            <p className="section-subtitle-sm">Real Experiences &amp; Transformations</p>
+            <p className="section-subtitle-sm">Verified feedback from clients assisted across India</p>
           </div>
         </div>
 
@@ -23,9 +23,9 @@ export function ReviewsSection({ data }) {
           target="_blank"
           rel="noopener noreferrer"
           className="header-text-link"
-          title="See all reviews on Google Maps"
+          title="See verified client reviews"
         >
-          <span>Google Reviews</span>
+          <span>Client Ratings</span>
           <ExternalLink size={14} />
         </a>
       </div>
@@ -35,7 +35,7 @@ export function ReviewsSection({ data }) {
         <div className="rating-score-pill">
           <Star size={18} className="star-gold-filled" fill="var(--color-gold)" />
           <span className="rating-number">{data.stats.rating}</span>
-          <span className="rating-count">({data.stats.reviewsCount} Google Reviews)</span>
+          <span className="rating-count">({data.stats.reviewsCount} reviews)</span>
         </div>
 
         <div className="reviewer-avatars-row">
@@ -65,7 +65,7 @@ export function ReviewsSection({ data }) {
               <div className="review-author-meta">
                 <div className="flex items-center gap-1.5">
                   <h4 className="review-author-name">{review.name}</h4>
-                  <CheckCircle2 size={14} className="text-emerald inline-block" title="Verified Customer" />
+                  <CheckCircle2 size={14} className="text-emerald inline-block" title="Verified client review" />
                 </div>
                 <div className="review-stars-row">
                   {[...Array(5)].map((_, i) => (
@@ -88,18 +88,18 @@ export function ReviewsSection({ data }) {
         ))}
       </div>
 
-      {/* Direct Google Review Action Button (Zero Backend Required) */}
+      {/* WhatsApp Feedback CTA */}
       <div className="write-review-btn-box">
         <a 
-          href={data.googleReviewUrl}
+          href={`https://wa.me/${data.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent("Hello Rahul, I would like to share feedback / enquire about your services.")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="write-review-action-btn"
           id="write-google-review-btn"
-          title="Post your review directly on Google Maps"
+          title="Share your review on WhatsApp"
         >
           <MessageSquarePlus size={18} />
-          <span>Write a Review on Google Maps</span>
+          <span>Connect with Rahul Parida</span>
           <ExternalLink size={14} className="opacity-70" />
         </a>
       </div>

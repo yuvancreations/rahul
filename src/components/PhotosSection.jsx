@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, ChevronRight, Maximize2, Sparkles } from 'lucide-react';
+import { Camera, ChevronRight, Maximize2, Sparkles, FolderCheck } from 'lucide-react';
 import ImageLightbox from './ImageLightbox';
 
 export function PhotosSection({ data }) {
@@ -7,7 +7,7 @@ export function PhotosSection({ data }) {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', 'Yoga', 'Sound Bath', 'Meditation', 'Studio'];
+  const categories = ['All', 'Insurance', 'Licence', 'Identity', 'GST & Tax', 'Hospitality', 'Forms'];
 
   const filteredPhotos = activeCategory === 'All' 
     ? data.photos 
@@ -31,16 +31,16 @@ export function PhotosSection({ data }) {
   };
 
   return (
-    <section id="photos" className="profile-card photos-card" aria-label="Photo Gallery">
+    <section id="photos" className="profile-card photos-card" aria-label="Services Portfolio Gallery">
       {/* Header */}
       <div className="card-header-with-action">
         <div className="card-header-icon-title">
           <span className="card-icon-badge">
-            <Camera size={20} className="section-icon" />
+            <FolderCheck size={20} className="section-icon text-emerald" />
           </span>
           <div>
-            <h2 className="section-title">Photo Gallery</h2>
-            <p className="section-subtitle-sm">A glimpse into our sanctuary & practice</p>
+            <h2 className="section-title">Service Portfolio</h2>
+            <p className="section-subtitle-sm">Insurance, Licences, PAN, Aadhaar, GST &amp; Documentation</p>
           </div>
         </div>
 

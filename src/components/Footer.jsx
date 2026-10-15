@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, MapPin, Phone, Mail } from 'lucide-react';
+import { Sparkles, MapPin, Phone, Mail, ShieldCheck } from 'lucide-react';
 import { websiteData } from '../data/websiteData';
 
 export default function Footer() {
@@ -14,16 +14,16 @@ export default function Footer() {
             <a href="#" className="brand-logo" style={{ color: '#FFFFFF' }}>
               <img
                 src={websiteData.logo || "/logo.png"}
-                alt="Dhyana Naad Yogshala Logo"
+                alt="Rahul Parida Logo"
                 className="brand-logo-img footer-logo-img"
               />
               <div className="brand-text">
-                <span className="brand-name" style={{ color: '#FFFFFF' }}>DHYANA NAAD</span>
-                <span className="brand-tagline">|| नादयोगेन चित्तशुद्धि ||</span>
+                <span className="brand-name" style={{ color: '#FFFFFF' }}>RAHUL PARIDA</span>
+                <span className="brand-tagline">Personal Service Provider</span>
               </div>
             </a>
             <p className="footer-brand-desc">
-              Dedicated to authentic traditional Yoga, mindfulness meditation, Tibetan sound bath healing, and holistic therapeutic wellness in Dehradun.
+              Your trusted partner for Insurance, Licence Renewal, Aadhaar Update, PAN Card, GST Registration, Hotel Management and documentation assistance. Services start from ₹500.
             </p>
           </div>
 
@@ -43,50 +43,33 @@ export default function Footer() {
 
           {/* Reach Us Column */}
           <div>
-            <h4 className="footer-column-title">Contact & Studio</h4>
-            <div className="footer-contact-item">
-              <Phone size={16} style={{ color: 'var(--color-gold)', flexShrink: 0, marginTop: '2px' }} />
-              <a href={`tel:${websiteData.phone}`} style={{ color: '#D3E0D8' }}>
-                {websiteData.phoneDisplay}
-              </a>
-            </div>
-            <div className="footer-contact-item">
-              <Mail size={16} style={{ color: 'var(--color-gold)', flexShrink: 0, marginTop: '2px' }} />
-              <a href={`mailto:${websiteData.email}`} style={{ color: '#D3E0D8' }}>
-                {websiteData.email}
-              </a>
-            </div>
-            <div className="footer-contact-item">
-              <MapPin size={16} style={{ color: 'var(--color-gold)', flexShrink: 0, marginTop: '2px' }} />
-              <span>Near Doon University Chowk, Mothrowala, Dehradun</span>
-            </div>
+            <h4 className="footer-column-title">Contact Us</h4>
+            <ul className="footer-contact-list">
+              <li>
+                <MapPin size={18} className="footer-icon" />
+                <span>{websiteData.address}</span>
+              </li>
+              <li>
+                <Phone size={18} className="footer-icon" />
+                <a href={`tel:${websiteData.phone}`}>{websiteData.phoneDisplay}</a>
+              </li>
+              <li>
+                <Mail size={18} className="footer-icon" />
+                <a href={`mailto:${websiteData.email}`}>{websiteData.email}</a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Footer Bottom Bar */}
+        {/* Legal Disclaimer */}
+        <div className="footer-disclaimer-box" style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.1)', textAlign: 'center', fontSize: '0.8rem', opacity: 0.8 }}>
+          <p>{footer.disclaimer}</p>
+        </div>
+
+        {/* Bottom Bar */}
         <div className="footer-bottom-bar">
-          <p>{footer.copyright}</p>
-          <div className="footer-partner-credits">
-            <span>Website structured by </span>
-            <a
-              href="https://yuvancreations.in"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="partner-link"
-            >
-              <span className="brand-yuvan">Yuvan</span>
-              <span className="brand-creations"> Creations</span>
-            </a>
-            <span> &amp; digital partner with </span>
-            <a
-              href="https://livejao.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="partner-link brand-livejao"
-            >
-              livejao.com
-            </a>
-          </div>
+          <p className="copyright-text">{footer.copyright}</p>
+          <p className="credit-text">{footer.credit}</p>
         </div>
       </div>
     </footer>

@@ -12,7 +12,8 @@ import {
   X,
   MessageCircle,
   Award,
-  Layers
+  Layers,
+  ShieldCheck
 } from 'lucide-react';
 
 export function ServicesSection({ data }) {
@@ -30,22 +31,16 @@ export function ServicesSection({ data }) {
         return <HeartPulse size={15} />;
       case 'Flower2':
         return <Flower2 size={15} />;
+      case 'ShieldCheck':
+        return <ShieldCheck size={15} />;
       case 'Sparkles':
       default:
         return <Sparkles size={15} />;
     }
   };
 
-  const getBatchTag = (id) => {
-    switch (id) {
-      case 'yoga-classes': return "🌅 6:00 AM & 5:30 PM";
-      case 'sound-healing': return "🔔 432Hz Resonance";
-      case 'pranayama': return "🧘 Breath Mastery";
-      case 'yoga-therapy': return "🩺 1-on-1 Relief";
-      case 'meditation': return "✨ Guided Dhyana";
-      case 'wellness-programs': return "🌿 Detox & Retreat";
-      default: return "Daily Batch";
-    }
+  const getBatchTag = (program) => {
+    return program.tag || program.duration || "Starts ₹500";
   };
 
   const handleOpenProgram = (program) => {
@@ -57,7 +52,7 @@ export function ServicesSection({ data }) {
   };
 
   return (
-    <section id="programs" className="profile-card programs-card" aria-label="Our Programs">
+    <section id="programs" className="profile-card programs-card" aria-label="Our Services">
       {/* Card Header */}
       <div className="card-header-with-action">
         <div className="card-header-icon-title">
@@ -65,8 +60,8 @@ export function ServicesSection({ data }) {
             <Sparkles size={20} className="section-icon text-emerald" />
           </span>
           <div>
-            <h2 className="section-title">Programs & Practices</h2>
-            <p className="section-subtitle-sm">Holistic Offerings • Beginner to Advanced</p>
+            <h2 className="section-title">Essential Services</h2>
+            <p className="section-subtitle-sm">Services Starting From ₹500 • Personal Support</p>
           </div>
         </div>
 
@@ -101,7 +96,7 @@ export function ServicesSection({ data }) {
                 loading="lazy"
               />
               <div className="program-batch-pill">
-                {getBatchTag(program.id)}
+                {getBatchTag(program)}
               </div>
               <div className="program-icon-badge-overlay">
                 {getProgramIcon(program.icon)}
@@ -142,7 +137,7 @@ export function ServicesSection({ data }) {
                 alt={selectedModalProgram.title} 
                 className="program-modal-hero-img"
               />
-              <span className="program-modal-tag">✨ {selectedModalProgram.tag || "Signature Practice"}</span>
+              <span className="program-modal-tag">✨ {selectedModalProgram.tag || "Personal Service"}</span>
             </div>
 
             {/* Modal Body Info */}
@@ -179,7 +174,7 @@ export function ServicesSection({ data }) {
               {/* Benefits Checklist */}
               {selectedModalProgram.benefits && selectedModalProgram.benefits.length > 0 && (
                 <div className="program-modal-benefits">
-                  <h4 className="benefits-heading">Key Highlights &amp; Benefits:</h4>
+                  <h4 className="benefits-heading">Key Assistance Highlights:</h4>
                   {selectedModalProgram.benefits.map((benefit, idx) => (
                     <div key={idx} className="benefit-item">
                       <CheckCircle2 size={16} className="benefit-check-icon" />
@@ -192,13 +187,13 @@ export function ServicesSection({ data }) {
               {/* WhatsApp Booking CTA */}
               <div className="pt-2">
                 <a 
-                  href={`https://wa.me/${data.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello Dhyana Naad Yogshala, I am interested in "${selectedModalProgram.title}" (${selectedModalProgram.timing}). Please share details and slot availability.`)}`}
+                  href={`https://wa.me/${data.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello Rahul, I am interested in your "${selectedModalProgram.title}" service. Please let me know the requirements and process.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cta-btn cta-whatsapp full-width"
                 >
                   <MessageCircle size={18} />
-                  <span>Book Trial Slot on WhatsApp</span>
+                  <span>Get Service via WhatsApp</span>
                 </a>
               </div>
             </div>

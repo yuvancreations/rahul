@@ -3,7 +3,6 @@ import { businessData } from './data/businessData';
 import ProfileHeader from './components/ProfileHeader';
 import LiveActivityBanner from './components/LiveActivityBanner';
 import QuickActions from './components/QuickActions';
-import ProgramFinder from './components/ProgramFinder';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import PhotosSection from './components/PhotosSection';
@@ -35,6 +34,7 @@ export function App() {
 
   // 3. Modal States
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [shareTab, setShareTab] = useState('apps');
 
   // 4. Toast Feedback State
   const [toastMessage, setToastMessage] = useState(null);
@@ -50,7 +50,7 @@ export function App() {
     try {
       localStorage.setItem('dhyananaad_followed', String(nextState));
     } catch {}
-    showToast(nextState ? 'You are now following Dhyana Naad Yogshala' : 'Unfollowed profile');
+    showToast(nextState ? 'You are now following Rahul Parida' : 'Unfollowed profile');
   };
 
   // Save toggle handler
@@ -70,12 +70,12 @@ export function App() {
         {/* 1. Profile Header with Sound Healing & Stories */}
         <ProfileHeader 
           data={businessData}
-          onShare={() => setIsShareModalOpen(true)}
+          onShare={() => { setShareTab('apps'); setIsShareModalOpen(true); }}
           isFollowed={isFollowed}
           onToggleFollow={handleToggleFollow}
           isSaved={isSaved}
           onToggleSave={handleToggleSave}
-          onShowQR={() => setIsShareModalOpen(true)}
+          onShowQR={() => { setShareTab('qr'); setIsShareModalOpen(true); }}
         />
 
         {/* 2. Live Admissions & Batch Status Bar */}
@@ -95,18 +95,13 @@ export function App() {
         <div className="profile-content-body">
           {/* Main Column */}
           <div className="profile-main-col">
-            {/* 4. Interactive Program Recommendation Widget */}
-            <div id="finder">
-              <ProgramFinder data={businessData} />
-            </div>
-
-            {/* 5. About Us */}
+            {/* 4. About Us */}
             <AboutSection data={businessData} />
 
-            {/* 6. Our Programs */}
+            {/* 5. Photography Services */}
             <ServicesSection data={businessData} />
 
-            {/* 7. Photos with Filter Pills */}
+            {/* 6. Photos with Filter Pills */}
             <PhotosSection data={businessData} />
           </div>
 
@@ -125,8 +120,11 @@ export function App() {
 
         {/* 11. Profile Footer Branding */}
         <footer className="profile-subfooter">
+          <p className="profile-disclaimer-text">
+            <strong>महत्वपूर्ण अस्वीकरण (Disclaimer):</strong> हम एक Individual Service Provider के रूप में विभिन्न Services में Assistance/Support प्रदान करते हैं। जहाँ किसी Service के लिए Government Department, Authorized Agency, Insurance Company या अन्य Third Party की approval/process आवश्यक है, वहाँ final approval और processing संबंधित authority/organization के नियमों के अनुसार होगी। Services starting from ₹500 onwards.
+          </p>
           <p className="profile-footer-credit">
-            Website structured by <span className="credit-yuvan">Yuvan</span><span className="credit-creations">Creations</span> &amp; digital partner with <a href="https://livejao.com" target="_blank" rel="noopener noreferrer" className="credit-livejao">livejao.com</a>
+            Rahul Parida – Personal Service Provider • Structured by <span className="credit-yuvan">Yuvan</span><span className="credit-creations">Creations</span>
           </p>
         </footer>
       </main>
@@ -138,6 +136,7 @@ export function App() {
       <ShareProfileModal 
         data={businessData}
         isOpen={isShareModalOpen}
+        initialTab={shareTab}
         onClose={() => setIsShareModalOpen(false)}
         onShowToast={showToast}
       />

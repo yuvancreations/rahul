@@ -1,32 +1,32 @@
 import React from 'react';
-import { Sparkles, Users, Clock, Flame } from 'lucide-react';
+import { ShieldCheck, Sparkles, PhoneCall, CheckCircle } from 'lucide-react';
 
 export function LiveActivityBanner({ data }) {
   return (
     <div className="live-activity-bar">
       <div className="live-pill-tag">
         <span className="live-dot-pulse"></span>
-        <span>ADMISSIONS OPEN</span>
+        <span>SERVICES STARTING ₹500</span>
       </div>
 
       <div className="live-scrolling-content">
         <span className="live-stat-item">
-          <Clock size={15} className="live-icon" />
-          <span>Daily Batches: <strong>6:00 AM & 5:30 PM</strong></span>
+          <ShieldCheck size={15} className="live-icon" />
+          <span><strong>Insurance • Licence • Aadhaar • PAN • GST</strong></span>
         </span>
 
         <span className="live-divider">•</span>
 
         <span className="live-stat-item">
-          <Flame size={15} className="live-icon fire" />
-          <span>Limited to <strong>12 Yogis</strong> per batch for personal attention</span>
+          <Sparkles size={15} className="live-icon fire" />
+          <span><strong>Personal One-on-One Assistance</strong></span>
         </span>
 
         <span className="live-divider">•</span>
 
         <span className="live-stat-item">
-          <Users size={15} className="live-icon" />
-          <span><strong>4.9/5 ⭐</strong> Rated Sanctuary in Dehradun</span>
+          <PhoneCall size={15} className="live-icon" />
+          <span>Direct WhatsApp &amp; Call: <strong>+91 82799 37975</strong></span>
         </span>
       </div>
     </div>

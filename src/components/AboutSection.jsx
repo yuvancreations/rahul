@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserCheck, Users, Sparkles, Flower2, ShieldCheck, Heart } from 'lucide-react';
+import { UserCheck, Users, Sparkles, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export function AboutSection({ data }) {
   const getBadgeIcon = (iconName) => {
@@ -19,17 +19,17 @@ export function AboutSection({ data }) {
       <div className="card-header-simple">
         <div className="card-header-icon-title">
           <span className="card-icon-badge bg-emerald-badge">
-            <Flower2 size={20} className="section-icon" />
+            <ShieldCheck size={20} className="section-icon text-emerald" />
           </span>
           <div>
             <h2 className="section-title">{data.about.title}</h2>
-            <p className="section-subtitle-sm">Ancient Lineage • Modern Rejuvenation</p>
+            <p className="section-subtitle-sm">{data.about.subtitle || "Insurance • Licence • Aadhaar • PAN • GST • Hotel Management"}</p>
           </div>
         </div>
 
         <span className="established-pill">
-          <ShieldCheck size={14} className="text-emerald" />
-          <span>Authentic Yogic Lineage</span>
+          <CheckCircle2 size={14} className="text-emerald" />
+          <span>Direct &amp; Online Assistance</span>
         </span>
       </div>
 
@@ -47,18 +47,18 @@ export function AboutSection({ data }) {
                   {getBadgeIcon(badge.icon)}
                 </div>
                 <span className="badge-title">{badge.title}</span>
-                <span className="badge-sub">{badge.id === 1 ? "100% Certified" : badge.id === 2 ? "Max 12 / Batch" : "Mind & Soul"}</span>
+                <span className="badge-sub">{badge.id === 1 ? "1-on-1 Guidance" : badge.id === 2 ? "Starts ₹500" : "One Trusted Platform"}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right Column: Studio Sanctuary Image with Floating Badge */}
+        {/* Right Column: Image with Floating Badge */}
         <div className="about-media-col">
           <div className="about-image-frame">
             <img 
               src={data.about.studioImage} 
-              alt={data.about.alt || "Studio Space"} 
+              alt={data.about.alt || "Rahul Parida Services"} 
               className="about-studio-img"
               loading="lazy"
             />
@@ -66,7 +66,7 @@ export function AboutSection({ data }) {
             
             <div className="studio-floating-tag">
               <Sparkles size={13} className="text-gold" />
-              <span>Himalayan Energy Sanctuary</span>
+              <span>Services Starting From ₹500</span>
             </div>
           </div>
         </div>
